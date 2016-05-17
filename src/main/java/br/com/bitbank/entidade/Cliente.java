@@ -1,11 +1,16 @@
 package br.com.bitbank.entidade;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,13 +22,35 @@ public class Cliente {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(unique = true)
 	private String email;
+	
+	@Column(nullable = false)
 	private String endereco;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")
 	private Calendar dataNascimento;
+	
+	@Column(nullable = false, unique = true)
 	private String cpf;
+	
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Conta> contas = new ArrayList<Conta>();
+
+	
+	
+	public List<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(List<Conta> contas) {
+		this.contas = contas;
+	}
 
 	public Long getId() {
 		return id;
