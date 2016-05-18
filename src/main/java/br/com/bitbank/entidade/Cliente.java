@@ -26,14 +26,14 @@ public class Cliente {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(unique = true)
+	@Column(nullable = false,unique = true)
 	private String email;
 	
 	@Column(nullable = false)
 	private String endereco;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "data_nascimento")
+	@Column(nullable = false,name = "data_nascimento")
 	private Calendar dataNascimento;
 	
 	@Column(nullable = false, unique = true)
@@ -43,7 +43,18 @@ public class Cliente {
 	private List<Conta> contas = new ArrayList<Conta>();
 
 	
+	public Cliente(){
+		
+	}
 	
+	public Cliente( String nome, String email, String endereco, Calendar dataNascimento, String cpf) {
+		this.nome = nome;
+		this.email = email;
+		this.endereco = endereco;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+	}
+
 	public List<Conta> getContas() {
 		return contas;
 	}

@@ -26,7 +26,7 @@ public abstract class Movimentacao {
 	private String destricao;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "data_movimentacao")
+	@Column(name = "data_movimentacao",nullable = false)
 	private Calendar dataMovimentacao = Calendar.getInstance();
 	
 	@ManyToOne
@@ -34,7 +34,7 @@ public abstract class Movimentacao {
 	private Conta conta;
 
 	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -62,13 +62,10 @@ public abstract class Movimentacao {
 	public Conta getConta() {
 		return conta;
 	}
-
+	
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
 	
-	public  abstract BigDecimal entradaValor();
-	
-	public  abstract BigDecimal saidaValor();
-
+	public abstract BigDecimal NValor();
 }

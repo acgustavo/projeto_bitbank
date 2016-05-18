@@ -1,4 +1,4 @@
-package br.com.gu.jdbc;
+package br.com.bitbank.jdbc;
 
 import java.util.List;
 

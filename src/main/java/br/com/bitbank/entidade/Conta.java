@@ -33,10 +33,10 @@ public abstract class Conta {
 	private String nConta;
 	
 	@Column(nullable = false)
-	private BigDecimal valor;
+	private  BigDecimal valor;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "data_abertura")
+	@Column(name = "data_abertura",nullable = false)
 	private Calendar dataAbertura = Calendar.getInstance();
 	
 	@ManyToOne
@@ -46,9 +46,7 @@ public abstract class Conta {
 	@OneToMany(mappedBy = "conta", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Movimentacao> movimentacoes = new ArrayList<Movimentacao>();
 
-	
-	
-	
+
 	public List<Movimentacao> getMovimentacoes() {
 		return movimentacoes;
 	}
