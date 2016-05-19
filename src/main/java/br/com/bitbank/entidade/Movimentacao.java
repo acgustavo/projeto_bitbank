@@ -15,28 +15,53 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "movimentacoes")
-public abstract class Movimentacao {
+public class Movimentacao {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
-	// private TipoConta tipoConta;
+	private TipoMovimentacao tipoMovimentacao;
+	
 	@Column(nullable = false)
 	private String destricao;
 	
-	@Temporal(TemporalType.DATE)
+	private  BigDecimal valor;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_movimentacao",nullable = false)
 	private Calendar dataMovimentacao = Calendar.getInstance();
 	
 	@ManyToOne
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
-
 	
+	public Movimentacao( TipoMovimentacao tipoMovimentacao, String destricao, BigDecimal valor, Conta conta) {
+		super();
+		this.tipoMovimentacao = tipoMovimentacao;
+		this.destricao = destricao;
+		this.valor = valor;
+		this.conta = conta;
+	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public TipoMovimentacao getTipoMovimentacao() {
+		return tipoMovimentacao;
+	}
+
+	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
+		this.tipoMovimentacao = tipoMovimentacao;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
 	}
 
 	public void setId(Long id) {
@@ -66,6 +91,4 @@ public abstract class Movimentacao {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
-	
-	public abstract BigDecimal NValor();
 }

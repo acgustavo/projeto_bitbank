@@ -7,8 +7,9 @@ import javax.persistence.EntityManager;
 import br.com.bitbank.entidade.Conta;
 
 public class ContaDao {
-
+	
 	EntityManager manager = new JPAUtil().getEntityManager();
+	
 
 	public void adiciona(Conta conta) {
 		manager.getTransaction().begin();

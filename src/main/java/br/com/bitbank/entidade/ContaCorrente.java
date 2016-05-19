@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name = "contas_corrente")
 public class ContaCorrente extends Conta {
 	
-	//@Column(nullable = false)
 	private BigDecimal limite= new BigDecimal("300.00");
 
 	public ContaCorrente( String agencia, String nConta, BigDecimal valor, Cliente cliente) {
@@ -18,22 +17,14 @@ public class ContaCorrente extends Conta {
 			super.setValor(valor);
 			super.setCliente(cliente);
 		}
-
+	
+	
 	public BigDecimal getLimite() {
 		return limite;
 	}
 
+
 	public void setLimite(BigDecimal limite) {
 		this.limite = limite;
-	}
-
-	@Override
-	public BigDecimal limite() {
-		return getValor().add(limite);
-	}
-
-	@Override
-	public BigDecimal rendimento() {
-		return null;
 	}
 }
