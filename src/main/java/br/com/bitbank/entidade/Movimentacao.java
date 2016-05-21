@@ -5,6 +5,8 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,27 +23,36 @@ public class Movimentacao {
 	@GeneratedValue
 	private Long id;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo_movimentacao", nullable = false)
 	private TipoMovimentacao tipoMovimentacao;
 	
 	@Column(nullable = false)
-	private String destricao;
+	private String historico;
 	
+	@Column(nullable = false)
 	private  BigDecimal valor;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_movimentacao",nullable = false)
-	private Calendar dataMovimentacao = Calendar.getInstance();
+	private Calendar dataMovimentacao;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo_lancamento", nullable = false)
+	private TipoLancamento tipoLancamento;
 	
 	@ManyToOne
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
 	
-	public Movimentacao( TipoMovimentacao tipoMovimentacao, String destricao, BigDecimal valor, Conta conta) {
-		super();
-		this.tipoMovimentacao = tipoMovimentacao;
-		this.destricao = destricao;
-		this.valor = valor;
-		this.conta = conta;
+
+
+	public TipoLancamento getTipoLancamento() {
+		return tipoLancamento;
+	}
+
+	public void setTipoLancamento(TipoLancamento tipoLancamento) {
+		this.tipoLancamento = tipoLancamento;
 	}
 
 	public Long getId() {
@@ -68,12 +79,12 @@ public class Movimentacao {
 		this.id = id;
 	}
 
-	public String getDestricao() {
-		return destricao;
+	public String getHistorico() {
+		return historico;
 	}
-
-	public void setDestricao(String destricao) {
-		this.destricao = destricao;
+	
+	public void setHistorico(String historico) {
+		this.historico = historico;
 	}
 
 	public Calendar getDataMovimentacao() {

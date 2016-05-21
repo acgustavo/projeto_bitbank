@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "contas")
-public abstract class Conta{
+public class Conta{
 
 	@Id
 	@GeneratedValue
@@ -47,15 +47,16 @@ public abstract class Conta{
 	private Cliente cliente;
 	
 	@OneToMany(mappedBy = "conta", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Movimentacao> movimentacoes = new ArrayList<Movimentacao>();
+	private List<Movimentacao> Movimentacoes = new ArrayList<Movimentacao>();
+	
 
-
+	
 	public List<Movimentacao> getMovimentacoes() {
-		return movimentacoes;
+		return Movimentacoes;
 	}
 
 	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
-		this.movimentacoes = movimentacoes;
+		Movimentacoes = movimentacoes;
 	}
 
 	public Calendar getDataAbertura() {

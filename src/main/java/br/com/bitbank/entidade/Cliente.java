@@ -43,16 +43,9 @@ public class Cliente {
 	private List<Conta> contas = new ArrayList<Conta>();
 
 	
+	
 	public Cliente(){
 		
-	}
-	
-	public Cliente( String nome, String email, String endereco, Calendar dataNascimento, String cpf) {
-		this.nome = nome;
-		this.email = email;
-		this.endereco = endereco;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
 	}
 
 	public List<Conta> getContas() {
