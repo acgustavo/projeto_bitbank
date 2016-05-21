@@ -94,13 +94,27 @@ public class Teste {
 					String nConta = in.next();
 					ContaDao daoConta = new ContaDao();
 					Conta contaLog = daoConta.porAgenciaConta(agencia, nConta);
-					do {
+					d2:do {
+						
 						System.out.println("Digite a opção desejada: ");
-						System.out.println("1 transferencia");
+						System.out.println("1 consultar saldo");
+						System.out.println("2 transferencia");
+						System.out.println("3 Pagamento");
+						System.out.println("4 Emprestimo");
+						System.out.println("5 Recarga");
+						System.out.println("6 comprovantes");
+						System.out.println("7 atendimento");
+						System.out.println("8 logout");
+						
 						int op = in.nextInt();
 
 						switch (op) {
+
 						case 1:
+							System.out.println("seu saldo é: " + contaLog.getValor());
+							break;
+
+						case 2:
 							do {
 								System.out.println("digite a agenciado receptor: ");
 								String agenciaReceptor = in.next();
@@ -149,6 +163,35 @@ public class Teste {
 
 							break;
 
+						case 3:
+
+							System.out.println("Pagamento indisponivel no momento");
+							break;
+
+						case 4:
+							System.out.println("Emprestimo indisponivel no momento");
+							break;
+							
+						case 5:
+							System.out.println("Recarga indisponivel no momento");
+							break;
+							
+						case 6:
+							System.out.println(contaLog.getMovimentacoes());
+							
+							
+							break;
+							
+						case 7:
+							
+							System.out.println("Atendimento indisponivel no momento");
+							break;
+						
+						case 8:
+							System.out.println("sessão finalizada");
+							op2 = 1;
+							break d2;
+						
 						default:
 							System.out.println("opção invalida");
 							break;
@@ -160,6 +203,10 @@ public class Teste {
 					System.out.println("deseja volta ao menu de login? (1=sim/0=nao)");
 					op2 = in.nextInt();
 				} while (op2 == 1);
+
+				break;
+
+			case 3:
 
 				break;
 

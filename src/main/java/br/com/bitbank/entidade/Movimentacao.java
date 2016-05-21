@@ -102,4 +102,8 @@ public class Movimentacao {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
+	@Override
+	public String toString() {
+		return historico + " - " + tipoLancamento.getDescricao() + " de " + valor + "\n";
+	}
 }

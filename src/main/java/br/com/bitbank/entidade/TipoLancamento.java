@@ -10,6 +10,6 @@ public enum TipoLancamento {
     }
 
 	public String getDescricao() {
-        return descricao;
+        return descricao ;
     }
 }
