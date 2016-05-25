@@ -27,8 +27,8 @@ public class Teste {
 			System.out.println("1 Para criar conta");
 			System.out.println("2 Para logar conta");
 
-			int d = in.nextInt();
-			switch (d) {
+			int op1 = in.nextInt();
+			switch (op1) {
 			case 1:
 
 				Cliente gustavo = new Cliente();
@@ -106,9 +106,9 @@ public class Teste {
 						System.out.println("7 atendimento");
 						System.out.println("8 logout");
 						
-						int op = in.nextInt();
+						op1 = in.nextInt();
 
-						switch (op) {
+						switch (op1) {
 
 						case 1:
 							System.out.println("seu saldo é: " + contaLog.getValor());
