@@ -26,13 +26,14 @@ import br.com.bitbank.entidade.Conta;
 import br.com.bitbank.entidade.Movimentacao;
 import br.com.bitbank.jdbc.ContaDao;
 
-public class SaldoFrm extends JFrame {
+public class ExtratoFrm extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	private ContaDao contaDao = new ContaDao();
-	private Conta contaLog = new Conta();
+	private Conta contaLog = contaDao.porAgenciaConta(LoginFrm.getTextAgencia().getText(), LoginFrm.getTextConta().getText());
 	private Object[][] objects;
+	private String valorX;
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
@@ -42,7 +43,7 @@ public class SaldoFrm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SaldoFrm frame = new SaldoFrm();
+					ExtratoFrm frame = new ExtratoFrm();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,8 +55,8 @@ public class SaldoFrm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SaldoFrm() {
-		setTitle("Saldo");
+	public ExtratoFrm() {
+		setTitle("Extrato");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -175,17 +176,17 @@ public class SaldoFrm extends JFrame {
 		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_6.setBackground(Color.BLUE);
 
-		JButton button_7 = new JButton("Saldo");
-		button_7.addActionListener(new ActionListener() {
+		JButton btnExtrato = new JButton("Extrato");
+		btnExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				SaldoFrm frame = new SaldoFrm();
+				ExtratoFrm frame = new ExtratoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_7.setForeground(Color.YELLOW);
-		button_7.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_7.setBackground(Color.BLUE);
+		btnExtrato.setForeground(Color.YELLOW);
+		btnExtrato.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnExtrato.setBackground(Color.BLUE);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2
 				.setHorizontalGroup(
@@ -200,14 +201,14 @@ public class SaldoFrm extends JFrame {
 								.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179,
 										Short.MAX_VALUE)
 								.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-								.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE));
+								.addComponent(btnExtrato, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE));
 		gl_panel_2
 				.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 						.addGap(0, 425,
 								Short.MAX_VALUE)
 						.addGroup(
 								gl_panel_2.createSequentialGroup().addContainerGap()
-										.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34,
+										.addComponent(btnExtrato, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
 										.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34,
@@ -235,27 +236,54 @@ public class SaldoFrm extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.BLACK);
 
-		JLabel lblSaldo = new JLabel("Saldo");
-		lblSaldo.setToolTipText("");
-		lblSaldo.setForeground(Color.WHITE);
-		lblSaldo.setFont(new Font("Arial Black", Font.PLAIN, 30));
-		panel_3.add(lblSaldo);
+		JLabel lblExtrato = new JLabel("Extrato");
+		lblExtrato.setToolTipText("");
+		lblExtrato.setForeground(Color.WHITE);
+		lblExtrato.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		panel_3.add(lblExtrato);
 
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 
 		JScrollPane scrollPane = new JScrollPane();
+		
+		JLabel lblSaldo = new JLabel("Saldo: R$");
+		lblSaldo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		JLabel lblSaldoVariavel = new JLabel(contaLog.getValor().toString());
+		lblSaldoVariavel.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent arg0) {
+			}
+			public void ancestorMoved(AncestorEvent arg0) {
+			}
+			public void ancestorRemoved(AncestorEvent arg0) {
+			}
+		});
+		lblSaldoVariavel.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
-		gl_panel_4
-				.setHorizontalGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_4.createSequentialGroup().addContainerGap()
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
-								.addContainerGap()));
-		gl_panel_4
-				.setVerticalGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_4.createSequentialGroup().addContainerGap()
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-								.addContainerGap()));
+		gl_panel_4.setHorizontalGroup(
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.TRAILING)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addComponent(lblSaldo)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblSaldoVariavel, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		gl_panel_4.setVerticalGroup(
+			gl_panel_4.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+					.addGap(18)
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSaldoVariavel)
+						.addComponent(lblSaldo))
+					.addContainerGap())
+		);
 
 		table = new JTable();
 		table.setForeground(new Color(0, 0, 0));
@@ -270,7 +298,6 @@ public class SaldoFrm extends JFrame {
 			public void ancestorRemoved(AncestorEvent arg0) {
 			}
 		});
-		contaLog = contaDao.porAgenciaConta(LoginFrm.getTextAgencia().getText(), LoginFrm.getTextConta().getText());
 		int x = contaLog.getMovimentacoes().size();
 		objects = new Object[contaLog.getMovimentacoes().size()][4];
 		for (int i = 0; i < x; i++) {
@@ -310,5 +337,10 @@ public class SaldoFrm extends JFrame {
 										.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
 						.addGap(12)));
 		contentPane.setLayout(gl_contentPane);
+	}
+	private static class __Tmp {
+		private static void __tmp() {
+			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+		}
 	}
 }

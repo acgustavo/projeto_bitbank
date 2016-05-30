@@ -168,17 +168,17 @@ public class ComprovanteFrm extends JFrame {
 		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_6.setBackground(Color.BLUE);
 		
-		JButton button_7 = new JButton("Saldo");
-		button_7.addActionListener(new ActionListener() {
+		JButton btnExtrato = new JButton("Extrato");
+		btnExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				SaldoFrm frame = new SaldoFrm();
+				ExtratoFrm frame = new ExtratoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_7.setForeground(Color.YELLOW);
-		button_7.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_7.setBackground(Color.BLUE);
+		btnExtrato.setForeground(Color.YELLOW);
+		btnExtrato.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnExtrato.setBackground(Color.BLUE);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -190,14 +190,14 @@ public class ComprovanteFrm extends JFrame {
 				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnExtrato, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 425, Short.MAX_VALUE)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnExtrato, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)

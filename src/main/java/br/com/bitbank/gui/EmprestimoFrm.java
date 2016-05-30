@@ -169,11 +169,11 @@ public class EmprestimoFrm extends JFrame {
 		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_6.setBackground(Color.BLUE);
 		
-		JButton button_7 = new JButton("Saldo");
+		JButton button_7 = new JButton("Extrato");
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				SaldoFrm frame = new SaldoFrm();
+				ExtratoFrm frame = new ExtratoFrm();
 				frame.setVisible(true);
 			}
 		});
