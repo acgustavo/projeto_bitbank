@@ -2,6 +2,7 @@ package br.com.bitbank.entidade;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +46,8 @@ public class Movimentacao {
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
 	
-
+	
+	
 
 	public TipoLancamento getTipoLancamento() {
 		return tipoLancamento;
@@ -87,8 +89,13 @@ public class Movimentacao {
 		this.historico = historico;
 	}
 
+	
 	public Calendar getDataMovimentacao() {
 		return dataMovimentacao;
+	}
+
+	public Date getDateDataMovimentacao() {
+		return dataMovimentacao.getTime();
 	}
 
 	public void setDataMovimentacao(Calendar dataMovimentacao) {

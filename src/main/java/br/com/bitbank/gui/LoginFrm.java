@@ -3,6 +3,7 @@ package br.com.bitbank.gui;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import br.com.bitbank.entidade.Conta;
 import br.com.bitbank.jdbc.ContaDao;
@@ -23,12 +25,12 @@ import br.com.bitbank.jdbc.ContaDao;
 public class LoginFrm extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textConta;
-	private JTextField textAgencia;
+	private static JTextField textConta;
+	private static JTextField textAgencia;
 	public Conta contaLog = new Conta();
 
 
-	public JTextField getTextConta() {
+	public static JTextField getTextConta() {
 		return textConta;
 	}
 
@@ -36,7 +38,7 @@ public class LoginFrm extends JFrame {
 		this.textConta = textConta;
 	}
 
-	public JTextField getTextAgencia() {
+	public static JTextField getTextAgencia() {
 		return textAgencia;
 	}
 

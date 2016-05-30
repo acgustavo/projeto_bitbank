@@ -1,16 +1,23 @@
 package br.com.bitbank.gui;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.Calendar;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.bitbank.entidade.Conta;
@@ -19,14 +26,6 @@ import br.com.bitbank.entidade.TipoLancamento;
 import br.com.bitbank.entidade.TipoMovimentacao;
 import br.com.bitbank.jdbc.ContaDao;
 
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-
 public class TransferenciaFrm extends JFrame {
 
 	private JPanel contentPane;
@@ -34,7 +33,9 @@ public class TransferenciaFrm extends JFrame {
 	private JTextField textAgenciaDestinatinatario;
 	private JTextField textValorTansferencia;
 	private Conta contaDestinatario;
-	private ContaDao daoConta;
+	private ContaDao contaDao = new ContaDao();
+	private Conta contaLog = new Conta();
+	
 
 	/**
 	 * Launch the application.
@@ -253,19 +254,20 @@ public class TransferenciaFrm extends JFrame {
 			}
 		});
 		
-		JButton button_9 = new JButton("Entrar");
+		JButton button_9 = new JButton("Transferir");
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contaDestinatario = daoConta.porAgenciaConta(textAgenciaDestinatinatario.getText(), textContaDestinatinatario.getText());
+				
+				contaLog = contaDao.porAgenciaConta(LoginFrm.getTextAgencia().getText(), LoginFrm.getTextConta().getText());
+				contaDestinatario = contaDao.porAgenciaConta(textAgenciaDestinatinatario.getText(), textContaDestinatinatario.getText());
 				BigDecimal valor = new BigDecimal(textValorTansferencia.getText());
-				Conta contaLog = new Conta();//.contaLog;
 				Movimentacao movimentacaoLog = new Movimentacao();
 				Movimentacao movimentacaoReceptor = new Movimentacao();
 				Calendar dataMovimentacao = Calendar.getInstance();
 				TipoMovimentacao tipoMovimentacao = TipoMovimentacao.TRANSFERENCIA;
 
 				movimentacaoLog.setTipoMovimentacao(tipoMovimentacao);
-				movimentacaoLog.setValor(valor);
+				movimentacaoLog.setValor(valor.negate());
 				movimentacaoLog.setDataMovimentacao(dataMovimentacao);
 				movimentacaoLog.setTipoLancamento(TipoLancamento.D);
 				movimentacaoLog.setHistorico("Transferencia online: " + contaDestinatario.getAgencia()
@@ -292,9 +294,26 @@ public class TransferenciaFrm extends JFrame {
 				daoConta1.altera(contaLog);
 				daoConta2.altera(contaDestinatario);
 				
-				setVisible(false);
-				InicialFrm frame = new InicialFrm();
-				frame.setVisible(true);
+				JOptionPane.showMessageDialog(null,TipoMovimentacao.TRANSFERENCIA.getDescricao()+ " executada com sucesso");
+				
+				int x;
+				x=JOptionPane.showConfirmDialog( null, "deseja fazer uma nova transferencia");
+				
+				switch (x) {
+				case 1:
+					setVisible(false);
+					InicialFrm frame = new InicialFrm();
+					frame.setVisible(true);
+					break;
+
+				case 0:
+					textAgenciaDestinatinatario.setText("");
+					textContaDestinatinatario.setText("");
+					textValorTansferencia.setText("");
+					break;
+				default:
+					break;
+				}		
 			}
 		});
 		
