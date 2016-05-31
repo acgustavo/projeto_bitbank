@@ -33,7 +33,6 @@ public class ExtratoFrm extends JFrame {
 	private ContaDao contaDao = new ContaDao();
 	private Conta contaLog = contaDao.porAgenciaConta(LoginFrm.getTextAgencia().getText(), LoginFrm.getTextConta().getText());
 	private Object[][] objects;
-	private String valorX;
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
@@ -140,17 +139,17 @@ public class ExtratoFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -164,17 +163,17 @@ public class ExtratoFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.addActionListener(new ActionListener() {
@@ -197,10 +196,10 @@ public class ExtratoFrm extends JFrame {
 								.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 								.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179,
 										Short.MAX_VALUE)
-								.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+								.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 								.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179,
 										Short.MAX_VALUE)
-								.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+								.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 								.addComponent(btnExtrato, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE));
 		gl_panel_2
 				.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -211,13 +210,13 @@ public class ExtratoFrm extends JFrame {
 										.addComponent(btnExtrato, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34,
+										.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
 										.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
-										.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34,
+										.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18)
 										.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34,
@@ -337,10 +336,5 @@ public class ExtratoFrm extends JFrame {
 										.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
 						.addGap(12)));
 		contentPane.setLayout(gl_contentPane);
-	}
-	private static class __Tmp {
-		private static void __tmp() {
-			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
-		}
 	}
 }

@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.bitbank.entidade.Cliente;
-import br.com.bitbank.entidade.ContaCorrente;
+import br.com.bitbank.entidade.Conta;
 import br.com.bitbank.jdbc.ClienteDao;
 
 public class AberturaContaFrm extends JFrame {
@@ -149,7 +149,7 @@ public class AberturaContaFrm extends JFrame {
 		btLogin.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btLogin.setForeground(Color.YELLOW);
 		
-		JButton btAberturaConta = new JButton("AberturaConta");
+		JButton btAberturaConta = new JButton("Abertura de Conta");
 		btAberturaConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -270,7 +270,7 @@ public class AberturaContaFrm extends JFrame {
 		JButton btCadastrar = new JButton("Cadastrar");
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ContaCorrente conta = new ContaCorrente();
+				Conta conta = new Conta();
 				Cliente cliente = new Cliente();
 				ClienteDao dao = new ClienteDao();
 				
@@ -309,7 +309,7 @@ public class AberturaContaFrm extends JFrame {
 			}
 		});
 		
-		JLabel lblNumeroDaConta = new JLabel("Numero Da Conta:");
+		JLabel lblNumeroDaConta = new JLabel("N\u00FAmero Da Conta:");
 		lblNumeroDaConta.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		
 		textNConta = new JTextField();
@@ -345,8 +345,8 @@ public class AberturaContaFrm extends JFrame {
 							.addComponent(lblEmail)
 							.addContainerGap(496, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(textEmail, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-							.addGap(229))
+							.addComponent(textEmail, GroupLayout.PREFERRED_SIZE, 321, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(229, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(lblNumeroDaConta)
 							.addContainerGap(391, Short.MAX_VALUE))
@@ -358,8 +358,8 @@ public class AberturaContaFrm extends JFrame {
 									.addComponent(btLimpar)
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(btCadastrar))
-								.addComponent(textNome, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
-								.addComponent(textEndereco, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE))
+								.addComponent(textNome, GroupLayout.PREFERRED_SIZE, 521, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textEndereco, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE))
 							.addContainerGap())
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(lblEndereo)

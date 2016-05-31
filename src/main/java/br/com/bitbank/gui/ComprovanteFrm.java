@@ -16,10 +16,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class ComprovanteFrm extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -132,17 +135,17 @@ public class ComprovanteFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 		
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 		
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -156,17 +159,17 @@ public class ComprovanteFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 		
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.addActionListener(new ActionListener() {
@@ -187,9 +190,9 @@ public class ComprovanteFrm extends JFrame {
 				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(btnExtrato, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -199,11 +202,11 @@ public class ComprovanteFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(btnExtrato, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -219,7 +222,7 @@ public class ComprovanteFrm extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.BLACK);
 		
-		JLabel lblComprovante = new JLabel("Comprovante");
+		JLabel lblComprovante = new JLabel("Comprovantes");
 		lblComprovante.setToolTipText("");
 		lblComprovante.setForeground(Color.WHITE);
 		lblComprovante.setFont(new Font("Arial Black", Font.PLAIN, 30));
@@ -228,30 +231,25 @@ public class ComprovanteFrm extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 		
-		JButton button_8 = new JButton("Limpar");
-		
-		JButton button_9 = new JButton("Entrar");
+		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 562, Short.MAX_VALUE)
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addGap(405)
-					.addComponent(button_8)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_9)
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 365, Short.MAX_VALUE)
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap(327, Short.MAX_VALUE)
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-						.addComponent(button_9)
-						.addComponent(button_8))
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
 					.addContainerGap())
 		);
+		
+		table = new JTable();
+		scrollPane.setColumnHeaderView(table);
 		panel_4.setLayout(gl_panel_4);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -284,5 +282,4 @@ public class ComprovanteFrm extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

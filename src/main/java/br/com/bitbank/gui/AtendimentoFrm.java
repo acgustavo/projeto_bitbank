@@ -132,17 +132,17 @@ public class AtendimentoFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 		
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 		
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -156,17 +156,17 @@ public class AtendimentoFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 		
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.addActionListener(new ActionListener() {
@@ -187,9 +187,9 @@ public class AtendimentoFrm extends JFrame {
 				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(btnExtrato, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -199,11 +199,11 @@ public class AtendimentoFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(btnExtrato, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -228,29 +228,62 @@ public class AtendimentoFrm extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 		
-		JButton button_8 = new JButton("Limpar");
+		JLabel lblTelefone = new JLabel("Telefone:");
+		lblTelefone.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		
-		JButton button_9 = new JButton("Entrar");
+		JLabel lblNewLabel = new JLabel("0800 0000 8888");
+		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		JLabel lblBitbankbitbankcom = new JLabel("bitbank@bitbank.com");
+		lblBitbankbitbankcom.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		JLabel lblChat = new JLabel("Chat:");
+		lblChat.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		JLabel lblCliqueAqui = new JLabel("Clique aqui");
+		lblCliqueAqui.setForeground(new Color(0, 0, 255));
+		lblCliqueAqui.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
-			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 562, Short.MAX_VALUE)
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
-					.addGap(405)
-					.addComponent(button_8)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_9)
-					.addContainerGap())
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addGap(80)
+							.addComponent(lblNewLabel))
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addGap(50)
+							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblEmail)
+								.addComponent(lblTelefone)
+								.addComponent(lblChat)))
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addGap(80)
+							.addComponent(lblBitbankbitbankcom))
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addGap(86)
+							.addComponent(lblCliqueAqui)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 365, Short.MAX_VALUE)
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap(327, Short.MAX_VALUE)
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-						.addComponent(button_9)
-						.addComponent(button_8))
-					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+					.addGap(52)
+					.addComponent(lblTelefone)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel)
+					.addGap(18)
+					.addComponent(lblEmail)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblBitbankbitbankcom)
+					.addGap(18)
+					.addComponent(lblChat)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblCliqueAqui)
+					.addContainerGap(124, Short.MAX_VALUE))
 		);
 		panel_4.setLayout(gl_panel_4);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

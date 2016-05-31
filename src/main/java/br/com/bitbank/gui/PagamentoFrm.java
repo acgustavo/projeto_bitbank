@@ -1,25 +1,26 @@
 package br.com.bitbank.gui;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.border.LineBorder;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JTextField;
 
 public class PagamentoFrm extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textCodigoBarra;
 
 	/**
 	 * Launch the application.
@@ -133,17 +134,17 @@ public class PagamentoFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 		
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 		
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -157,17 +158,17 @@ public class PagamentoFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 		
 		JButton button_7 = new JButton("Extrato");
 		button_7.addActionListener(new ActionListener() {
@@ -188,9 +189,9 @@ public class PagamentoFrm extends JFrame {
 				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -200,11 +201,11 @@ public class PagamentoFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -231,25 +232,46 @@ public class PagamentoFrm extends JFrame {
 		
 		JButton button_8 = new JButton("Limpar");
 		
-		JButton button_9 = new JButton("Entrar");
+		JButton bntPagar = new JButton("Pagar");
+		bntPagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		textCodigoBarra = new JTextField();
+		textCodigoBarra.setColumns(10);
+		
+		JLabel lblCodigoDeBarra = new JLabel("C\u00F3digo de barra");
+		lblCodigoDeBarra.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 562, Short.MAX_VALUE)
 				.addGroup(gl_panel_4.createSequentialGroup()
 					.addGap(405)
 					.addComponent(button_8)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_9)
+					.addComponent(bntPagar)
 					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+					.addGap(32)
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addComponent(lblCodigoDeBarra)
+							.addContainerGap())
+						.addGroup(gl_panel_4.createSequentialGroup()
+							.addComponent(textCodigoBarra, GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+							.addGap(33))))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 365, Short.MAX_VALUE)
 				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap(327, Short.MAX_VALUE)
+					.addGap(100)
+					.addComponent(lblCodigoDeBarra)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textCodigoBarra, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
-						.addComponent(button_9)
+						.addComponent(bntPagar)
 						.addComponent(button_8))
 					.addContainerGap())
 		);

@@ -10,16 +10,25 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import br.com.bitbank.entidade.TipoMovimentacao;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import java.awt.SystemColor;
 
 public class EmprestimoFrm extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textValor;
 
 	/**
 	 * Launch the application.
@@ -133,17 +142,17 @@ public class EmprestimoFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 		
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 		
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -157,17 +166,17 @@ public class EmprestimoFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 		
 		JButton button_7 = new JButton("Extrato");
 		button_7.addActionListener(new ActionListener() {
@@ -188,9 +197,9 @@ public class EmprestimoFrm extends JFrame {
 				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -200,11 +209,11 @@ public class EmprestimoFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -229,25 +238,67 @@ public class EmprestimoFrm extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 		
-		JButton button_8 = new JButton("Limpar");
 		
-		JButton button_9 = new JButton("Entrar");
+		JButton button_9 = new JButton("Ok");
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"Solicitação encaminhada para aprovação");
+				setVisible(false);
+				InicialFrm frame = new InicialFrm();
+				frame.setVisible(true);
+			}
+		});
+		
+		JButton button_8 = new JButton("Limpar");
+		textValor = new JTextField();
+		textValor.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Valor");
+		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		
+		final JTextPane txtpnDigiteAqui = new JTextPane();
+		txtpnDigiteAqui.setText("Digite aqui o motivo da solicita\u00E7\u00E3o");
+		txtpnDigiteAqui.setBackground(SystemColor.window);
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
-			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 562, Short.MAX_VALUE)
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
-					.addGap(405)
-					.addComponent(button_8)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_9)
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(txtpnDigiteAqui, GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE))
+						.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+							.addGap(405)
+							.addComponent(button_8)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(button_9))
+						.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+							.addGap(41)
+							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+								.addComponent(textValor, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNewLabel))
+							.addGap(350)))
 					.addContainerGap())
 		);
+		
+		
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textValor.setText("");
+				txtpnDigiteAqui.setText("Digite aqui o motivo da solicita\u00E7\u00E3o");
+			}
+		});
+		
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 365, Short.MAX_VALUE)
 				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap(327, Short.MAX_VALUE)
+					.addGap(47)
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textValor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(txtpnDigiteAqui, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.BASELINE)
 						.addComponent(button_9)
 						.addComponent(button_8))
@@ -285,5 +336,4 @@ public class EmprestimoFrm extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

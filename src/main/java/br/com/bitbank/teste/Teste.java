@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 import br.com.bitbank.entidade.Cliente;
 import br.com.bitbank.entidade.Conta;
-import br.com.bitbank.entidade.ContaCorrente;
 import br.com.bitbank.entidade.Movimentacao;
 import br.com.bitbank.entidade.TipoLancamento;
 import br.com.bitbank.entidade.TipoMovimentacao;
@@ -38,7 +37,7 @@ public class Teste {
 				gustavo.setEndereco("rua..");
 				gustavo.setNome("gustavo");
 
-				ContaCorrente contag = new ContaCorrente();
+				Conta contag = new Conta();
 				contag.setAgencia("0518");
 				contag.setCliente(gustavo);
 				contag.setnConta("003003");
@@ -53,7 +52,7 @@ public class Teste {
 				gu.setEndereco("ruuuua..");
 				gu.setNome("gu1");
 
-				ContaCorrente co = new ContaCorrente();
+				Conta co = new Conta();
 				co.setAgencia("0518");
 				co.setCliente(gu);
 				co.setnConta("113113");
@@ -68,7 +67,7 @@ public class Teste {
 				gus.setEndereco("ruuua..");
 				gus.setNome("gus");
 
-				ContaCorrente con = new ContaCorrente();
+				Conta con = new Conta();
 				con.setAgencia("0518");
 				con.setCliente(gus);
 				con.setnConta("223223");

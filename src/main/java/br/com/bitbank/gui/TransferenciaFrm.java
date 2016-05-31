@@ -149,17 +149,17 @@ public class TransferenciaFrm extends JFrame {
 		button_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_3.setBackground(Color.BLUE);
 		
-		JButton button_4 = new JButton("Emprestimo");
-		button_4.addActionListener(new ActionListener() {
+		JButton btnEmprstimo = new JButton("Empr\u00E9stimo");
+		btnEmprstimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				EmprestimoFrm frame = new EmprestimoFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_4.setForeground(Color.YELLOW);
-		button_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_4.setBackground(Color.BLUE);
+		btnEmprstimo.setForeground(Color.YELLOW);
+		btnEmprstimo.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEmprstimo.setBackground(Color.BLUE);
 		
 		JButton button_5 = new JButton("Pagamento");
 		button_5.addActionListener(new ActionListener() {
@@ -173,17 +173,17 @@ public class TransferenciaFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("Transferencia");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnTransferncia = new JButton("Transfer\u00EAncia");
+		btnTransferncia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TransferenciaFrm frame = new TransferenciaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnTransferncia.setForeground(Color.YELLOW);
+		btnTransferncia.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnTransferncia.setBackground(Color.BLUE);
 		
 		JButton button_7 = new JButton("Extrato");
 		button_7.addActionListener(new ActionListener() {
@@ -204,9 +204,9 @@ public class TransferenciaFrm extends JFrame {
 				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnEmprstimo, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnTransferncia, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -216,11 +216,11 @@ public class TransferenciaFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnTransferncia, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnEmprstimo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -236,7 +236,7 @@ public class TransferenciaFrm extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.BLACK);
 		
-		JLabel lblTranferencia = new JLabel("Tranferencia");
+		JLabel lblTranferencia = new JLabel("Tranfer\u00EAncia");
 		lblTranferencia.setToolTipText("");
 		lblTranferencia.setForeground(Color.WHITE);
 		lblTranferencia.setFont(new Font("Arial Black", Font.PLAIN, 30));
@@ -320,13 +320,13 @@ public class TransferenciaFrm extends JFrame {
 		textContaDestinatinatario = new JTextField();
 		textContaDestinatinatario.setColumns(10);
 		
-		JLabel lblContaDestinatario = new JLabel("Conta destinatario:");
+		JLabel lblContaDestinatario = new JLabel("Conta destinat\u00E1rio:");
 		lblContaDestinatario.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		
 		textAgenciaDestinatinatario = new JTextField();
 		textAgenciaDestinatinatario.setColumns(10);
 		
-		JLabel lblAgenciaDestinatario = new JLabel("Agencia destinatario:");
+		JLabel lblAgenciaDestinatario = new JLabel("Ag\u00EAncia destinat\u00E1rio:");
 		lblAgenciaDestinatario.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		
 		JLabel lblValor = new JLabel("Valor:");
@@ -338,36 +338,34 @@ public class TransferenciaFrm extends JFrame {
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_4.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addGap(405)
+						.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_panel_4.createSequentialGroup()
+								.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(textAgenciaDestinatinatario)
+									.addComponent(lblAgenciaDestinatario))
+								.addContainerGap())
+							.addGroup(gl_panel_4.createSequentialGroup()
+								.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+									.addComponent(textContaDestinatinatario, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+									.addComponent(lblContaDestinatario))
+								.addGap(221))
+							.addGroup(gl_panel_4.createSequentialGroup()
+								.addComponent(lblValor)
+								.addContainerGap(521, Short.MAX_VALUE))
+							.addGroup(gl_panel_4.createSequentialGroup()
+								.addComponent(textValorTansferencia, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(407, Short.MAX_VALUE)))
+						.addGroup(Alignment.TRAILING, gl_panel_4.createSequentialGroup()
 							.addComponent(button_8)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(button_9))
-						.addGroup(gl_panel_4.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(textAgenciaDestinatinatario)
-								.addComponent(lblAgenciaDestinatario))))
-					.addContainerGap())
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addComponent(textContaDestinatinatario, GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
-						.addComponent(lblContaDestinatario))
-					.addGap(221))
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblValor)
-					.addContainerGap(499, Short.MAX_VALUE))
-				.addGroup(gl_panel_4.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(textValorTansferencia, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(385, Short.MAX_VALUE))
+							.addComponent(button_9)
+							.addContainerGap())))
 		);
 		gl_panel_4.setVerticalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_4.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
 					.addGap(73)
 					.addComponent(lblAgenciaDestinatario, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -389,30 +387,30 @@ public class TransferenciaFrm extends JFrame {
 		panel_4.setLayout(gl_panel_4);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-								.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE))))
+								.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 562, Short.MAX_VALUE)
+								.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE))))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-					.addGap(7)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 425, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-							.addGap(7)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
 					.addGap(12))
 		);

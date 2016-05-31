@@ -3,7 +3,6 @@ package br.com.bitbank.gui;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import br.com.bitbank.entidade.Conta;
 import br.com.bitbank.jdbc.ContaDao;
@@ -34,16 +32,8 @@ public class LoginFrm extends JFrame {
 		return textConta;
 	}
 
-	public void setTextConta(JTextField textConta) {
-		this.textConta = textConta;
-	}
-
 	public static JTextField getTextAgencia() {
 		return textAgencia;
-	}
-
-	public void setTextAgencia(JTextField textAgencia) {
-		this.textAgencia = textAgencia;
 	}
 
 	
@@ -141,17 +131,17 @@ public class LoginFrm extends JFrame {
 		button_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		button_5.setBackground(Color.BLUE);
 		
-		JButton button_6 = new JButton("AberturaConta");
-		button_6.addActionListener(new ActionListener() {
+		JButton btnAberturaDeConta = new JButton("Abertura de Conta");
+		btnAberturaDeConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				AberturaContaFrm frame = new AberturaContaFrm();
 				frame.setVisible(true);
 			}
 		});
-		button_6.setForeground(Color.YELLOW);
-		button_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		button_6.setBackground(Color.BLUE);
+		btnAberturaDeConta.setForeground(Color.YELLOW);
+		btnAberturaDeConta.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnAberturaDeConta.setBackground(Color.BLUE);
 		
 		JButton button_7 = new JButton("Login");
 		button_7.addActionListener(new ActionListener() {
@@ -173,7 +163,7 @@ public class LoginFrm extends JFrame {
 				.addComponent(button_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_4, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-				.addComponent(button_6, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+				.addComponent(btnAberturaDeConta, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 				.addComponent(button_7, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 		);
 		gl_panel_2.setVerticalGroup(
@@ -182,7 +172,7 @@ public class LoginFrm extends JFrame {
 					.addContainerGap()
 					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnAberturaDeConta, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -208,7 +198,7 @@ public class LoginFrm extends JFrame {
 		textConta = new JTextField();
 		textConta.setColumns(10);
 		
-		JLabel lblAgencia = new JLabel("Agencia:");
+		JLabel lblAgencia = new JLabel("Ag\u00EAncia:");
 		lblAgencia.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		
 		JButton button_8 = new JButton("Limpar");
@@ -276,10 +266,10 @@ public class LoginFrm extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.BLACK);
 		
-		JLabel label_9 = new JLabel("Abertura de Conta");
-		label_9.setForeground(Color.WHITE);
-		label_9.setFont(new Font("Arial Black", Font.PLAIN, 30));
-		panel_4.add(label_9);
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setForeground(Color.WHITE);
+		lblLogin.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		panel_4.add(lblLogin);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
